@@ -1,0 +1,42 @@
+//I won't show my changes on this file for now
+var roleAttacker = {
+    /** @param {Creep} creep **/
+    run: function(creep)
+    {   
+        
+        creep.moveTo(new RoomPosition(2, 27, 'W3S25'))
+        
+        /*
+        //allows you to attack hostile creeps
+        var  target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if(target  != undefined)
+        {
+            if(creep.attack(target) == ERR_NOT_IN_RANGE)
+            {
+                creep.moveTo(target);
+            }
+        }
+        //allows you to attack only spawns
+        var target = creep.room.find(FIND_HOSTILE_STRUCTURES,
+        {
+                filter: (str) =>
+                {
+                    return (str.structureType == STRUCTURE_SPAWN);
+                }
+        }
+        );
+        if (target)
+        {
+            if(target.length != 0)
+            {
+                if(creep.attack(target[0]) == ERR_NOT_IN_RANGE)
+                {
+                    creep.say('HAHAHA')
+                    creep.moveTo(target[0]);
+                }
+            }
+        }
+        */
+    }
+}
+module.exports = roleAttacker;
