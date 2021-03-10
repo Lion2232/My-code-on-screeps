@@ -1,5 +1,5 @@
 //I won't show my changes on this file for now
-var roleAttacker = {
+let roleAttacker = {
     /** @param {Creep} creep **/
     run: function(creep)
     {   
