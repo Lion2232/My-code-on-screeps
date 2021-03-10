@@ -25,9 +25,9 @@ module.exports.loop = function () {    var harvesters = _.filter(Game.creeps, (c
         var newName = 'Builder' + Game.time;
         console.log('Spawning new builder: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
-            {memory: {role: 'builder'}});        
-    }      
-    }    if(haulers.length == 0) {
+            {memory: {role: 'builder'}});            
+    }    
+    if(haulers.length == 0) {
         var newName = 'Hauler' + Game.time;
         console.log('Spawning new hauler: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,MOVE,MOVE], newName, 
