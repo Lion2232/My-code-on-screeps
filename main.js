@@ -5,6 +5,7 @@ var roleBuilder = require('role.builder');
 var roleRepairer = require('role.repairer');
 var roleHauler = require('role.hauler');
 var roleAttacker = require('role.attacker');
+var roleAssigner = require('role.assigner')
 module.exports.loop = function () {    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -77,6 +78,9 @@ module.exports.loop = function () {    var harvesters = _.filter(Game.creeps, (c
         }
         if(creep.memory.role == 'attacker'){
             roleAttacker.run(creep);
+        }
+        if(creep.memory.role == 'assigner'){
+            roleAssigner.run(creep);
         }
     }
     if (Game.cpu.bucket == 10000) {
