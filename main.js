@@ -107,3 +107,4 @@ module.exports.loop = function() {
                 Game.cpu.generatePixel();
             }
         }
+}
