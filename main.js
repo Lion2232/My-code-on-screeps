@@ -13,6 +13,7 @@ module.exports.loop = function() {
         var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
         var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
         var tower = Game.getObjectById('60415d18abf74db642de2ce6');
+        var towerTwo = Game.getObjectById('6053d09137ff393f185e36e5');
         if (harvesters.length == 0) {
             var newName = 'Harvester' + Game.time;
             console.log('Spawning new harvester: ' + newName);
@@ -68,16 +69,18 @@ module.exports.loop = function() {
                     opacity: 0.8
                 });
         }
-        if (tower) {
+        if (tower or towerTwo or tower and towerTwo) {
             var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => structure.hits < structure.hitsMax
             });
             if (closestDamagedStructure /* && closestDamagedStructure.structureType != STRUCTURE_RAMPART*/ ) {
                 tower.repair(closestDamagedStructure);
+                towerTwo.repair(closestDamagedStructure);
             }
             var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
             if (closestHostile) {
                 tower.attack(closestHostile);
+                towerTwo.attack(closestHostile);
             }
         }
         for (var name in Game.creeps) {
