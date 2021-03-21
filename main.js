@@ -69,7 +69,7 @@ module.exports.loop = function() {
                     opacity: 0.8
                 });
         }
-        if (tower or towerTwo or tower and towerTwo) {
+        if (tower || towerTwo) {
             var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => structure.hits < structure.hitsMax
             });
