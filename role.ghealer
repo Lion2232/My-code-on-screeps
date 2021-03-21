@@ -1,0 +1,15 @@
+let roleGhealer = {
+
+    /** @param {Creep} creep **/
+    run: function(creep) {
+     guard = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')[0];
+     if(guard.hits < guard.hitsMax){
+       if (creep.heal(guard) == ERR_NOT_IN_RANGE){
+          creep.moveTo(guard.pos);
+       }
+     }
+    }
+
+};
+
+module.exports = roleGhealer;
