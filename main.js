@@ -6,6 +6,7 @@ var roleHauler = require('role.hauler');
 var roleAttacker = require('role.attacker');
 var roleAssigner = require('role.assigner');
 var roleRepairer = require('role.repairer');
+var roleClaimer = require('role.claimer');
 module.exports.loop = function() {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
@@ -105,6 +106,9 @@ module.exports.loop = function() {
             }
             if (creep.memory.role == 'repairer') {
                 roleRepairer.run(creep);
+            }
+            if (creep.memory.role == 'claimer') {
+                roleClaimer.run(creep);
             }
             if (Game.cpu.bucket == 10000) {
                 Game.cpu.generatePixel();
