@@ -5,7 +5,16 @@ let roleGhealer = {
      guard = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder')[0];
      if(guard.hits < guard.hitsMax){
        if (creep.heal(guard) == ERR_NOT_IN_RANGE){
+       
           creep.moveTo(guard.pos);
+       }
+     }
+     else {
+       creep.say('🚬🥱');
+       creep.moveTo(17, 46);
+       if (creep.ticksToLive < 100) {
+           creep.moveTo(20, 45);
+           Game.spawns['Spawn1'].renewCreep(creep);
        }
      }
     }
