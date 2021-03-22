@@ -14,6 +14,10 @@ let roleGuard = {
         }
         else {
             creep.say('🚬🥱')
+            if (creep.ticksToLive < 100) {
+               creep.moveTo(20, 45);
+               Game.spawns['Spawn1'].renewCreep(creep);
+            }
         } 
     }
 }
