@@ -8,30 +8,13 @@ let roleGuard = {
         {
             if(creep.attack(target) == ERR_NOT_IN_RANGE)
             {
+                creep.say('⚠️!')
                 creep.moveTo(target);
             }
         }
-        //allows you to attack only spawns
-        var target = creep.room.find(FIND_HOSTILE_STRUCTURES,
-        {
-                filter: (str) =>
-                {
-                    return (str.structureType == STRUCTURE_SPAWN);
-                }
-        }
-        );
-        if (target)
-        {
-            if(target.length != 0)
-            {
-                if(creep.attack(target[0]) == ERR_NOT_IN_RANGE)
-                {
-                    creep.say('HAHAHA')
-                    creep.moveTo(target[0]);
-                }
-            }
-        }
-        
+        else {
+            creep.say('🚬🥱')
+        } 
     }
 }
 module.exports = roleGuard;
