@@ -2,13 +2,13 @@ let roleClaimer = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-     
+     /*
       if(creep.room.controller) {
          if(creep.attackController(creep.room.controller) == ERR_NOT_IN_RANGE) {
             creep.attackController(creep.room.controller);
          }
       }
-
+      */
       
     }
 
