@@ -1,7 +1,8 @@
 //main.js
 var roles = require('roles.mod');
-roles.run()
+
 module.exports.loop = function() {
+        roles.run()
         var tower = Game.getObjectById('60415d18abf74db642de2ce6');
         var towerTwo = Game.getObjectById('6053d09137ff393f185e36e5');
         if (harvesters.length == 0) {
