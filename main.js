@@ -1,20 +1,7 @@
 //main.js
-var roleHarvester = require('role.harvester');
-var roleUpgrader = require('role.upgrader');
-var roleBuilder = require('role.builder');
-var roleHauler = require('role.hauler');
-var roleAttacker = require('role.attacker');
-var roleAssigner = require('role.assigner');
-var roleRepairer = require('role.repairer');
-var roleClaimer = require('role.claimer');
-var roleGuard = require('role.guard');
-var roleGhealer = require('role.ghealer');
+var roles = require('roles.mod');
+roles.run()
 module.exports.loop = function() {
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-        var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
-        var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
         var tower = Game.getObjectById('60415d18abf74db642de2ce6');
         var towerTwo = Game.getObjectById('6053d09137ff393f185e36e5');
         if (harvesters.length == 0) {
