@@ -55,4 +55,4 @@ var roles = {
         }
     }
 }
-module.exports = roles;}
+module.exports = roles;
