@@ -1,13 +1,18 @@
- var rolerepair = require('role.repairer');
 var roleHarvester = require('role.harvester');
-var rolemover = require('role.mover');
-var roleupgrader = require('role.upgrader');
-var roletowermover = require('role.towermover');
-var roleresourcemover = require('role.resourcemover');
-var roleextractor = require('role.extractor');
-var roleguard = require('role.basicroomguard');
-var rolescout = require('role.scout');
-var rolemulti = require('role.multi');
+var roleUpgrader = require('role.upgrader');
+var roleBuilder = require('role.builder');
+var roleHauler = require('role.hauler');
+var roleAttacker = require('role.attacker');
+var roleAssigner = require('role.assigner');
+var roleRepairer = require('role.repairer');
+var roleClaimer = require('role.claimer');
+var roleGuard = require('role.guard');
+var roleGhealer = require('role.ghealer');
+var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
+var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
 var debug = true;
 var roles = {
     run: function()
