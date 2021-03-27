@@ -1,5 +1,5 @@
 let spawnis = {
-    module.exports.loop = function() {
+    run: function() {
         var rooms = [];
         var roomsall = Object.keys(Game.rooms);
         var roomsobj = Game.rooms;
