@@ -1,4 +1,4 @@
-let spawnis {
+let spawnis = {
 module.exports.loop = function() {
     var rooms = Game.rooms.find(FIND_MY_ROOMS);
     for (var i; i < rooms.length; i++) {
