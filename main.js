@@ -21,6 +21,7 @@ module.exports.loop = function() {
             }
         }
         for (var i; i < rooms.length; i++) {
+            console.log('Rooms loop works!');
             spawns.run();
             
           
