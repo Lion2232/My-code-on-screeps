@@ -1,7 +1,9 @@
 let spawnis = {
     run: function() {
+            console.log('Spawns.mod works!');
             var allspawns = Game.rooms[i].find(FIND_MY_SPAWNS);
             for (var i; i < allspawns; i++) {
+                console.log('Loop works!')
                 var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
                 var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
                 var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -17,6 +19,7 @@ let spawnis = {
                             role: 'harvester'
                         }
                     });
+                    console.log('If condition works!');
                 }
                 if (upgraders.length == 0) {
                     var newName = 'Upgrader' + Game.time;
