@@ -84,5 +84,4 @@ let spawnis = {
             }
         }
     }
-}
 module.exports = spawnis;
