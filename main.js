@@ -2,7 +2,6 @@
 var roles = require('roles.mod');
 var spawns = require('spawns.mod');
 module.exports.loop = function() {
-        console.log('Module exports works!')
         roles.run()
         var rooms = [];
         var roomsall = Object.keys(Game.rooms);
