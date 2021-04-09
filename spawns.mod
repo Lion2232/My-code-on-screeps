@@ -1,6 +1,5 @@
 let spawnis = {
     run: function(roomname) {
-            console.log('Spawns.mod works!');
             var allspawns = Game.rooms[roomname].find(FIND_MY_SPAWNS);
             for (var i; i < allspawns; i++) {
                 console.log('Loop works!')
