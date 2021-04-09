@@ -1,7 +1,7 @@
 let spawnis = {
-    run: function() {
+    run: function(roomname) {
             console.log('Spawns.mod works!');
-            var allspawns = Game.rooms[i].find(FIND_MY_SPAWNS);
+            var allspawns = Game.rooms[roomname].find(FIND_MY_SPAWNS);
             for (var i; i < allspawns; i++) {
                 console.log('Loop works!')
                 var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
@@ -14,7 +14,7 @@ let spawnis = {
                 if (harvesters.length == 0) {
                     var newName = 'Harvester' + Game.time;
                     console.log('Spawning new harvester: ' + newName);
-                    Game.spawns[i].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+                    Game.spawns[allspawns[i]].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
                         memory: {
                             role: 'harvester'
                         }
@@ -24,7 +24,7 @@ let spawnis = {
                 if (upgraders.length == 0) {
                     var newName = 'Upgrader' + Game.time;
                     console.log('Spawning new upgrader: ' + newName);
-                    Game.spawns[i].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+                    Game.spawns[allspawns[i]].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
                         memory: {
                             role: 'upgrader'
                         }
@@ -33,7 +33,7 @@ let spawnis = {
                 if (builders.length == 0) {
                     var newName = 'Builder' + Game.time;
                     console.log('Spawning new builder: ' + newName);
-                    Game.spawns[i].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+                    Game.spawns[allspawns[i]].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
                         memory: {
                             role: 'builder'
                         }
@@ -42,7 +42,7 @@ let spawnis = {
                 if (haulers.length == 0) {
                     var newName = 'Hauler' + Game.time;
                     console.log('Spawning new hauler: ' + newName);
-                    Game.spawns[i].spawnCreep([CARRY, CARRY, MOVE, MOVE], newName, {
+                    Game.spawns[allspawns[i]].spawnCreep([CARRY, CARRY, MOVE, MOVE], newName, {
                         memory: {
                             role: 'hauler'
                         }
@@ -51,18 +51,18 @@ let spawnis = {
                 if (repairers.length == 0) {
                     var newName = 'Repairer' + Game.time;
                     console.log('Spawning new repairer: ' + newName);
-                    Game.spawns[i].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {
+                    Game.spawns[allspawns[i]].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {
                         memory: {
                             role: 'repairer'
                         }
                     });
                 }
-                if (Game.spawns[i].spawning) {
-                    var spawningCreep = Game.creeps[Game.spawns[i].spawning.name];
-                    Game.spawns[i].room.visual.text(
+                if (Game.spawns[allspawns[i]].spawning) {
+                    var spawningCreep = Game.creeps[Game.spawns[allspawns[i]].spawning.name];
+                    Game.spawns[allspawns[i]].room.visual.text(
                         '🛠️' + spawningCreep.memory.role,
-                        Game.spawns[i].pos.x + 1,
-                        Game.spawns[i].pos.y, {
+                        Game.spawns[allspawns[i]].pos.x + 1,
+                        Game.spawns[allspawns[i]].pos.y, {
                             align: 'left',
                             opacity: 0.8
                         });
