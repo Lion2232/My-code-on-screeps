@@ -20,8 +20,8 @@ module.exports.loop = function() {
             }
         }
         for (var i=0; i < rooms.length; i++) {
-            console.log(rooms.length);
-            //spawns.run();
+            var roomname = rooms[i];
+            spawns.run(roomname);
             
           
           
