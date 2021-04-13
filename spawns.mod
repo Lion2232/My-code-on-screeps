@@ -1,16 +1,19 @@
 let spawnis = {
     run: function(roomname) {
+                var allspawns = Game.rooms[roomname].find(FIND_MY_SPAWNS);
                 var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
                 var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
                 var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
                 var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
                 var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
+                /*
                 var tower = Game.getObjectById('60415d18abf74db642de2ce6');
                 var towerTwo = Game.getObjectById('6053d09137ff393f185e36e5');
+                */
                 if (harvesters.length == 0) {
                     var newName = 'Harvester' + Game.time;
                     console.log('Spawning new harvester: ' + newName);
-                    Game.spawns[roomname].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+                    allspawns[i].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
                         memory: {
                             role: 'harvester'
                         }
@@ -20,7 +23,7 @@ let spawnis = {
                 if (upgraders.length == 0) {
                     var newName = 'Upgrader' + Game.time;
                     console.log('Spawning new upgrader: ' + newName);
-                    Game.spawns[roomname].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+                    allspawns[i].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
                         memory: {
                             role: 'upgrader'
                         }
@@ -29,7 +32,7 @@ let spawnis = {
                 if (builders.length == 0) {
                     var newName = 'Builder' + Game.time;
                     console.log('Spawning new builder: ' + newName);
-                    Game.spawns[roomname].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
+                    allspawns[i].spawnCreep([WORK, WORK, CARRY, MOVE], newName, {
                         memory: {
                             role: 'builder'
                         }
@@ -38,7 +41,7 @@ let spawnis = {
                 if (haulers.length == 0) {
                     var newName = 'Hauler' + Game.time;
                     console.log('Spawning new hauler: ' + newName);
-                    Game.spawns[roomname].spawnCreep([CARRY, CARRY, MOVE, MOVE], newName, {
+                    allspawns[i].spawnCreep([CARRY, CARRY, MOVE, MOVE], newName, {
                         memory: {
                             role: 'hauler'
                         }
@@ -47,22 +50,23 @@ let spawnis = {
                 if (repairers.length == 0) {
                     var newName = 'Repairer' + Game.time;
                     console.log('Spawning new repairer: ' + newName);
-                    Game.spawns[roomname].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {
+                    allspawns[i].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], newName, {
                         memory: {
                             role: 'repairer'
                         }
                     });
                 }
-                if (Game.spawns[roomname].spawning) {
-                    var spawningCreep = Game.creeps[Game.spawns[roomname].spawning.name];
-                    Game.spawns[roomname].room.visual.text(
+                if (allspawns[i].spawning) {
+                    var spawningCreep = Game.creeps[allspawns[i].spawning.name];
+                    allspawns[i].room.visual.text(
                         '🛠️' + spawningCreep.memory.role,
-                        Game.spawns[roomname].pos.x + 1,
-                        Game.spawns[roomname].pos.y, {
+                        allspawns[i].pos.x + 1,
+                        allspawns[i].pos.y, {
                             align: 'left',
                             opacity: 0.8
                         });
                 }
+                /*
                 if (tower || towerTwo) {
                     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => structure.hits < structure.hitsMax
@@ -77,6 +81,7 @@ let spawnis = {
                         towerTwo.attack(closestHostile);
                     }
                 }
+                */
             }
     }
 module.exports = spawnis;
