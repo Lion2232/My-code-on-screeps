@@ -1,6 +1,7 @@
 let spawnis = {
     run: function(roomname) {
                 var allspawns = Game.rooms[roomname].find(FIND_MY_SPAWNS);
+                for(var i = 0, i < allspawns.length, i++) {
                 var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
                 var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
                 var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -82,6 +83,7 @@ let spawnis = {
                     }
                 }
                 */
+            }
             }
     }
 module.exports = spawnis;
