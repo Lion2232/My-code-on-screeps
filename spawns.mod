@@ -71,7 +71,7 @@ let spawnis = {
                     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => structure.hits < structure.hitsMax
                     });
-                    if (closestDamagedStructure /* && closestDamagedStructure.structureType != STRUCTURE_RAMPART*/ ) {
+                    if (closestDamagedStructure  && closestDamagedStructure.structureType != STRUCTURE_RAMPART ) {
                         tower.repair(closestDamagedStructure);
                         towerTwo.repair(closestDamagedStructure);
                     }
