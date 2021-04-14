@@ -19,7 +19,6 @@ let spawnis = {
                         role: 'harvester'
                     }
                 });
-                console.log('If condition works!');
             }
             if (upgraders.length == 0) {
                 var newName = 'Upgrader' + Game.time;
