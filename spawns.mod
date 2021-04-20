@@ -3,15 +3,15 @@ let spawnis = {
         var allspawns = Game.rooms[roomname].find(FIND_MY_SPAWNS);
         for (var i = 0; i < allspawns.length; i++) {
             var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-            console.log('Harvesters: ', harvesters);
+            console.log('Harvesters: ', harvesters.length);
             var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-            console.log('Upgraders: ', upgraders);
+            console.log('Upgraders: ', upgraders.length);
             var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-            console.log('Builders: ', builders);
+            console.log('Builders: ', builders.length);
             var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
-            console.log('Haulers: ',haulers);
+            console.log('Haulers: ',haulers.length);
             var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
-            console.log('Repairers: ', repairers);
+            console.log('Repairers: ', repairers.length);
             /*
             var tower = Game.getObjectById('60415d18abf74db642de2ce6');
             var towerTwo = Game.getObjectById('6053d09137ff393f185e36e5');
