@@ -7,7 +7,7 @@ let roleUpgrader = {
             {
                 creep.memory.full = false;
             }
-            if(creep.memory.full && creep.carry.energy == creep.carryCapacity)
+            if(creep.carry.energy == creep.carryCapacity)
             {
                 creep.memory.full = true;
             }
