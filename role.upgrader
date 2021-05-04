@@ -27,4 +27,3 @@ function run(creep) {
 		}
 }
 module.exports.run = run;
-module.exports = roleUpgrader;
