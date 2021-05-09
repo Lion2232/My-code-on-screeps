@@ -12,10 +12,7 @@ let spawnis = {
             console.log('Haulers: ',haulers.length);
             var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
             console.log('Repairers: ', repairers.length);
-            /*
-            var tower = Game.getObjectById('60415d18abf74db642de2ce6');
-            var towerTwo = Game.getObjectById('6053d09137ff393f185e36e5');
-            */
+            var towers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_TOWER}});
             if (harvesters.length == 0) {
                 var newName = 'Harvester' + Game.time;
                 console.log('Spawning new harvester: ' + newName);
@@ -71,22 +68,18 @@ let spawnis = {
                         opacity: 0.8
                     });
             }
-            /*
-            if (tower || towerTwo) {
-                var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+            for(var tower = 0; tower < towers.length; tower++) { 
+                var closestDamagedStructure = towers[tower].pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (structure) => structure.hits < structure.hitsMax
                 });
                 if (closestDamagedStructure  && closestDamagedStructure.structureType != STRUCTURE_RAMPART ) {
-                    tower.repair(closestDamagedStructure);
-                    towerTwo.repair(closestDamagedStructure);
+                    towers[tower].repair(closestDamagedStructure);
                 }
-                var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+                var closestHostile = towers[tower].pos.findClosestByRange(FIND_HOSTILE_CREEPS);
                 if (closestHostile) {
-                    tower.attack(closestHostile);
-                    towerTwo.attack(closestHostile);
+                    towers[tower].attack(closestHostile);
                 }
             }
-            */
         }
     }
 }
