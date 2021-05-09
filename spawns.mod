@@ -12,7 +12,7 @@ let spawnis = {
             console.log('Haulers: ',haulers.length);
             var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
             console.log('Repairers: ', repairers.length);
-            var towers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_TOWER}});
+            var towers = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_TOWER)}});
             if (harvesters.length == 0) {
                 var newName = 'Harvester' + Game.time;
                 console.log('Spawning new harvester: ' + newName);
