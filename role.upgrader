@@ -1,29 +1,42 @@
 function run(creep) {
-		if(creep.memory.full && creep.store.getUsedCapacity('energy') === 0){
-				delete creep.memory.full
-		}
-		if(creep.store.getUsedCapacity() === creep.store.getCapacity()){
-				creep.memory.full = true;
-		}
-		if(!creep.memory.full) {
-				let sources = creep.room.find(FIND_SOURCES);
-				let harvest = creep.harvest(sources[0])
-				if (harvest === ERR_NOT_IN_RANGE) {
-						creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'},range:1});
-				} else if (harvest === 0) {
-						console.log('success with upgrader harvest')
-				} else {
-						console.log('error with upgrader harvest:',harvest)
-				}
-		} else {
-				let upgrade = creep.upgradeController(creep.room.controller)
-				if(upgrade === ERR_NOT_IN_RANGE) {
-						creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'},range:1});
-				} else if (upgrade === 0) {
-						console.log('success with upgrade')
-				} else {
-						console.log('error with upgrade:',upgrade)
-				}
-		}
-}
-module.exports.run = run;
+    if (creep.memory.full && creep.store.getUsedCapacity('energy') === 0) {
+        delete creep.memory.full
+    }
+    if (creep.store.getUsedCapacity() === creep.store.getCapacity()) {
+        creep.memory.full = true;
+    }
+    if (!creep.memory.full) {
+        var droppedresources = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES, {
+            filter: (res) => {
+                return (res.resourceType != RESOURCE_ENERGY) || (res.amount > 200);
+            }
+        });
+        if (droppedresources != undefined) {
+            var range = creep.pos.getRangeTo(droppedresources);
+            if (range <= 1) {
+                creep.pickup(droppedresources);
+            } else {
+                creep.moveTo(droppedresources, {
+                    reusePath: range,
+                    visualizePathStyle: {
+                        stroke: '#ffaa00'
+                    }
+                });
+        }
+    } else {
+            let upgrade = creep.upgradeController(creep.room.controller)
+            if (upgrade === ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.room.controller, {
+                    visualizePathStyle: {
+                        stroke: '#ffffff'
+                    },
+                    range: 1
+                });
+            } else if (upgrade === 0) {
+                console.log('success with upgrade')
+            } else {
+                console.log('error with upgrade:', upgrade)
+            }
+        }
+    }
+    module.exports.run = run;
