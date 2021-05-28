@@ -31,12 +31,12 @@ function run(creep) {
                         stroke: '#ffffff'
                     },
                     range: 1
-                });
+            });
             } else if (upgrade === 0) {
                 console.log('success with upgrade')
             } else {
                 console.log('error with upgrade:', upgrade)
             }
-        }
     }
-    module.exports.run = run;
+}
+module.exports.run = run;
