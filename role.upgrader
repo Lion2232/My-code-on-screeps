@@ -21,7 +21,7 @@ function run(creep) {
                     visualizePathStyle: {
                         stroke: '#ffaa00'
                     }
-                });
+            )};
         }
     } else {
             let upgrade = creep.upgradeController(creep.room.controller)
