@@ -1,10 +1,10 @@
 function run(creep) {
     if (creep.memory.full && creep.store.getUsedCapacity('energy') === 0) {
         delete creep.memory.full;
-    };
+    }
     if (creep.store.getUsedCapacity() === creep.store.getCapacity()) {
         creep.memory.full = true;
-    };
+    }
     if (!creep.memory.full) {
         var droppedresources = creep.pos.findClosestByRange(FIND_DROPPED_RESOURCES, {
             filter: (res) => {
@@ -22,7 +22,7 @@ function run(creep) {
                         stroke: '#ffaa00'
                     }
             });
-        };
+        }
     } else {
             let upgrade = creep.upgradeController(creep.room.controller);
             if (upgrade === ERR_NOT_IN_RANGE) {
@@ -36,7 +36,7 @@ function run(creep) {
                 console.log('success with upgrade');
             } else {
                 console.log('error with upgrade:', upgrade);
-            };
+            }
     }
 }
 }
