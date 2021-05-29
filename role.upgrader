@@ -20,7 +20,7 @@ function run(creep) {
                     reusePath: range,
                     visualizePathStyle: {
                         stroke: '#ffaa00'
-                    };
+                    }
             });
         };
     } else {
