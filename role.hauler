@@ -22,6 +22,7 @@ let roleHauler = {
             }
         } else {
             if (creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS) == null) {
+                console.log('findClosestByRange works!')
                 var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_TOWER ||
@@ -32,6 +33,7 @@ let roleHauler = {
                     }
                 });
                 if (targets.length > 0) {
+                    console.log('moving to targets works!')
                     if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets[0], {
                             visualizePathStyle: {
