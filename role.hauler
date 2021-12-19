@@ -34,13 +34,15 @@ let roleHauler = {
                 });
                 if (targets.length > 0) {
                     console.log('moving to targets works!')
-                    if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    let result = creep.transfer(targets[0], RESOURCE_ENERGY)
+                    if (result == ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets[0], {
-                            visualizePathStyle: {
+                        visualizePathStyle: {
                                 stroke: '#FFFFFF'
-                            }
+                        }
                         });
                     }
+                    console.log(result)
                 }
             } else {
                 var targets = creep.room.find(FIND_STRUCTURES, {
