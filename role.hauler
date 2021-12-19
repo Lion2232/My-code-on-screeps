@@ -21,7 +21,7 @@ let roleHauler = {
                 }
             }
         } else {
-            if (creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS) == undefined) {
+            if (creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS) == null) {
                 var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_TOWER ||
