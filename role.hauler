@@ -60,6 +60,7 @@ let roleHauler = {
                             }
                         }));
                     }
+                    creep.say('Hey!', true)
                     console.log(result)
                 }
             }
